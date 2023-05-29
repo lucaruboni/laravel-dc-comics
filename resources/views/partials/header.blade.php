@@ -7,6 +7,15 @@
 
         </div>
           <div class="col">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="adminMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin
+            </button>
+            <div class="dropdown-menu" aria-labelledby="adminMenu">
+                <a class="dropdown-item" href="{{route('comics.index')}}">COMICS</a>
+                
+
+            </div>
             <ul class="d-flex gap-3 mt-5">
                <li>
                 <a href="/">HOME</a>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
@@ -15,8 +15,8 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
-        return view('comics.index', compact('comics'));
+        $comics = Comic::orderByDesc('id')->get();
+        return view('admin.index', compact('comics'));
     }
 
     /**
@@ -46,9 +46,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $comic)
     {
-        //
+        return view('admin.show', compact('comic'));
     }
 
     /**
