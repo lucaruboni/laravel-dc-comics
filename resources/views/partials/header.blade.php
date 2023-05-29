@@ -21,7 +21,7 @@
                 <a href="/">HOME</a>
                </li>
                <li>
-                <a href="/single_comic">COMIC</a>
+               COMIC
                </li>
                <li>STORE</li>
                <li>VIDEOS</li>
