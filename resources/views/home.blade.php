@@ -15,12 +15,12 @@
                         
                 @foreach ($comics as $comic)
                     <li class="mt-3 d-flex">
-                        <div>
+                        <a href="{{ route('single_comic', $comic->id)}}">
                             <img src="{{$comic['thumb']}}" class="card-img-top card_image" alt="...">
                             <div>
                                 <p>{{ $comic['title'] }}</p>
                             </div>
-                        </div>
+                        </a>
                     </li>       
                 @endforeach    
                     
