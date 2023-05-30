@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\UpdateComicRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
@@ -68,9 +69,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('admin.comics.edit', compact('comic'));
     }
 
     /**
@@ -80,19 +81,34 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
-    }
+       
+        $data = [
+            'title' => $request->title,
+            'thumb' => $request->thumb,
+            'price' => $request->price,
+            'description' => $request->description,
+            'series' => $request->series,
+            'sale_date' => $request->sale_date,
+            'type' => $request->type
+        ];
+        $comic->update($data);
 
+        return to_route('comics.index')->with('message', 'comic updated');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        
+            $comic->delete();
+            return to_route('comics.index')->with('message', 'comic deleted');
+        
+    
     }
 }

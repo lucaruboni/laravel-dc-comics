@@ -25,6 +25,7 @@
                     <th>Price</th>
                     <th>Series</th>
                     <th>Type</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
 
@@ -41,6 +42,18 @@
                     <td>{{$comic->price}}</td>
                     <td>{{$comic->series}}</td>
                     <td>{{$comic->type}}</td>
+                    <td>
+
+                        <a class="btn btn-primary" href="{{route('comics.show', $comic->id )}}" role="button">View</a>
+                        <a class="btn btn-secondary" href="{{route('comics.edit', $comic->id )}}" role="button">Edit</a>
+
+                        <form action="{{route('comics.destroy', $comic->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+
+                    </td>
 
                        
               

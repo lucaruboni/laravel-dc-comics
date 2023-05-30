@@ -5,7 +5,7 @@
 
 
 <div class="container">
-    <h5 class="text-uppercase text-muted my-4">Add a new Comic</h5>
+    <h5 class="text-uppercase text-muted my-4 py-3">Add a new Comic</h5>
 
     <form action="{{route('comics.store')}}" method="post">
         @csrf
